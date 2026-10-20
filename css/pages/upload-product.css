@@ -1,0 +1,956 @@
+/* ==========================================
+   BAZARIA
+
+   Module  : Sell System
+   Page    : Upload Product
+
+   Version : 1.0
+   Author  : Haider Abbas
+
+========================================== */
+@import url("../global/reset.css");
+@import url("../global/variables.css");
+@import url("../global/style.css");
+
+
+/* ==========================================
+   UPLOAD PRODUCT CONTAINER
+========================================== */
+
+.upload-container{
+
+    width:100%;
+    max-width:var(--container-width, 1200px);
+
+    margin:0 auto;
+
+    padding:var(--space-lg);
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:var(--space-md);
+
+}
+
+/* ==========================================
+   GLASS CARD COMPONENT
+========================================== */
+
+.glass-card{
+
+    background: var(--card-color);
+
+    border: 1px solid var(--border-color);
+
+    border-left: 4px solid var(--primary-color);
+
+    border-radius: var(--radius-medium);
+
+    padding: var(--space-md);
+
+    box-shadow: var(--shadow-light);
+
+    backdrop-filter: blur(15px);
+
+    -webkit-backdrop-filter: blur(15px);
+
+    transition: all var(--transition-normal);
+
+}
+
+/* ==========================================
+   GLASS CARD HOVER
+========================================== */
+
+.glass-card:hover{
+
+    transform: translateY(-4px);
+
+    box-shadow: var(--shadow-glow);
+
+}
+
+/* ==========================================
+   CARD TITLE
+========================================== */
+
+.glass-card h2{
+
+    font-size: var(--font-medium);
+
+    color: var(--text-color);
+
+    margin-bottom: var(--space-sm);
+
+}
+
+/* ==========================================
+   CARD SUBTITLE
+========================================== */
+
+.glass-card p{
+
+    color: var(--text-light);
+
+    font-size: var(--font-small);
+
+    margin-bottom: var(--space-md);
+
+    line-height: 1.6;
+
+}
+
+
+/* ==========================================
+   INPUT GROUP
+========================================== */
+
+.input-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:var(--space-xs);
+
+    margin-bottom:var(--space-md);
+
+}
+
+
+/* ==========================================
+   LABEL
+========================================== */
+
+.input-group label{
+
+    font-size:var(--font-normal);
+
+    font-weight:600;
+
+    color:var(--text-color);
+
+}
+
+
+/* ==========================================
+   FORM ELEMENTS
+========================================== */
+
+.input-group input,
+.input-group select,
+.input-group textarea{
+
+    width:100%;
+
+    padding:14px 16px;
+
+    border:1px solid var(--border-color);
+
+    border-radius:var(--radius-medium);
+
+    background:rgba(255,255,255,0.04);
+
+    color:var(--text-color);
+
+    font-size:var(--font-normal);
+
+    outline:none;
+
+    transition:all var(--transition-normal);
+
+}
+
+
+/* ==========================================
+   INPUT FOCUS
+========================================== */
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus{
+
+    border-color:var(--primary-color);
+
+    box-shadow:var(--shadow-glow);
+
+}
+
+/* ==========================================
+   PLACEHOLDER
+========================================== */
+
+.input-group input::placeholder,
+.input-group textarea::placeholder{
+
+    color:var(--text-light);
+
+}
+
+
+/* ==========================================
+   PREMIUM SELECT
+========================================== */
+
+.input-group select{
+
+    cursor:pointer;
+
+    appearance:none;
+
+    -webkit-appearance:none;
+
+    -moz-appearance:none;
+
+    background:
+        rgba(255,255,255,0.04)
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='%23ffffff' viewBox='0 0 16 16'%3E%3Cpath d='M1.5 5.5l6 6 6-6'/%3E%3C/svg%3E")
+        no-repeat right 16px center;
+
+    padding-right:50px;
+
+}
+
+/* ==========================================
+   SELECT OPTIONS
+========================================== */
+
+.input-group select option{
+
+    background:#111117;
+
+    color:var(--text-color);
+
+}
+
+/* ==========================================
+   PREMIUM TEXTAREA
+========================================== */
+
+.input-group textarea{
+
+    min-height:80px;
+
+    resize:vertical;
+
+    line-height:1.7;
+
+    font-family:var(--main-font);
+
+}
+
+/* ==========================================
+   INPUT TIP
+========================================== */
+
+.input-tip{
+
+    font-size:var(--font-small);
+
+    color:var(--text-light);
+
+    margin-top:6px;
+
+}
+
+/* ==========================================
+   CHARACTER COUNTER
+========================================== */
+
+.character-counter{
+
+    text-align:right;
+
+    font-size:var(--font-small);
+
+    color:var(--text-light);
+
+    margin-top:8px;
+
+}
+
+/* ==========================================
+   BUTTON GROUP
+========================================== */
+
+.button-group{
+
+    display:flex;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+    margin-top:var(--space-lg);
+
+}
+
+/* ==========================================
+   PRIMARY BUTTON
+========================================== */
+
+.btn-primary{
+
+    flex:1;
+
+    min-width:180px;
+
+    padding:15px 20px;
+
+    border:none;
+
+    border-radius:var(--radius-medium);
+
+    background:linear-gradient(
+        135deg,
+        var(--primary-color),
+        var(--secondary-color)
+    );
+
+    color:#fff;
+
+    font-size:var(--font-normal);
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:all var(--transition-normal);
+
+    box-shadow:var(--shadow-light);
+
+}
+
+.btn-primary:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:var(--shadow-glow);
+
+}
+
+/* ==========================================
+   SECONDARY BUTTON
+========================================== */
+
+.btn-secondary{
+
+    flex:1;
+
+    min-width:180px;
+
+    padding:15px 20px;
+
+    border:1px solid var(--border-color);
+
+    border-radius:var(--radius-medium);
+
+    background:transparent;
+
+    color:var(--text-color);
+
+    cursor:pointer;
+
+    transition:all var(--transition-normal);
+
+}
+
+.btn-secondary:hover{
+
+    background:rgba(255,255,255,.08);
+
+    border-color:var(--primary-color);
+
+}
+
+
+
+/* ==========================================
+   HERO UPLOAD BOX
+========================================== */
+
+.upload-box{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:22pxpx;
+
+    margin-top:20px;
+
+    border:2px dashed rgba(255,255,255,0.15);
+
+    border-radius:var(--radius-large);
+
+    background:rgba(255,255,255,0.03);
+
+    transition:all var(--transition-normal);
+
+    cursor:pointer;
+
+}
+
+/* ==========================================
+   UPLOAD BOX HOVER
+========================================== */
+
+.upload-box:hover{
+
+    border-color:var(--primary-color);
+
+    background:rgba(0,191,255,0.06);
+
+    /* transform:translateY(-4px); */
+
+    box-shadow:var(--shadow-glow);
+
+}
+
+/* ==========================================
+   UPLOAD ICON
+========================================== */
+
+.upload-icon{
+
+    font-size:40px;
+
+    margin-bottom:12px;
+
+    transition:transform .3s ease;
+
+}
+
+.upload-box:hover .upload-icon{
+
+    transform:scale(1.1);
+
+}
+
+
+/* ==========================================
+   UPLOAD BOX TITLE
+========================================== */
+
+.upload-box h3{
+
+    font-size:22px;
+
+    color:var(--text-color);
+
+    margin-bottom:10px;
+
+}
+
+/* ==========================================
+   UPLOAD BOX DESCRIPTION
+========================================== */
+
+.upload-box p{
+
+    color:var(--text-light);
+
+    margin-bottom:10px;
+
+}
+
+/* ==========================================
+   FILE INFO
+========================================== */
+
+.upload-box small{
+
+    color:var(--text-light);
+
+    opacity:.8;
+
+    margin-bottom:20px;
+
+}
+
+
+/* ==========================================
+   UPLOAD BUTTON
+========================================== */
+
+.upload-btn{
+    margin-top:18px;
+    min-width:100px;
+}
+
+
+
+
+
+
+/* ==========================================
+   IMAGE PREVIEW HEADER
+========================================== */
+
+.image-preview{
+    margin-top: 22px;
+}
+
+.preview-head{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.preview-head h3{
+    font-size: 18px;
+    color: var(--text-color);
+    margin: 0;
+    position: relative;
+    bottom: 8px;
+}
+
+.preview-head h3 span{
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-light);
+    
+  
+}
+
+
+
+
+/* ==========================================
+   FIXED ADD BUTTON
+========================================== */
+
+.add-more-btn{
+    width: 33px;
+    height: 33px;
+    border: none;
+    border-radius: 50%;
+    background: linear-gradient(
+        135deg,
+        var(--primary-color),
+        var(--secondary-color)
+    );
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-light);
+    transition: all var(--transition-normal);
+    position: relative;
+    left: 80px;
+}
+
+.add-more-btn:hover{
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: var(--shadow-glow);
+}
+
+/* ==========================================
+   HORIZONTAL PREVIEW STRIP
+========================================== */
+
+.preview-strip{
+    
+    
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 4px 2px 10px;
+    
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+    bottom: 10px;
+}
+
+.preview-strip::-webkit-scrollbar{
+    height: 2px;
+}
+
+.preview-strip::-webkit-scrollbar-thumb{
+    background: rgba(255,255,255,0.12);
+    border-radius: 999px;
+}
+
+/* ==========================================
+   PREVIEW SLOT
+========================================== */
+
+.preview-slot{
+    flex: 0 0 50px;
+    height: 50px;
+    position: relative;
+    border-radius: var(--radius-medium);
+    border: 1px solid var(--border-color);
+    background: rgba(255,255,255,0.04);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    scroll-snap-align: start;
+    transition: all var(--transition-normal);
+}
+
+.preview-slot i{
+    font-size: 28px;
+    color: rgba(255,255,255,0.35);
+}
+
+.preview-slot:hover{
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-2px);
+}
+
+
+
+
+/* ==========================================
+   PREVIEW IMAGE
+========================================== */
+
+.preview-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* یہ سب سے اہم ہے تاکہ تصویر پھلے یا بلینک نہ ہو */
+    border-radius: 8px;
+    display: block;
+}
+
+
+
+/* ==========================================
+   PREVIEW IMAGE
+========================================== */
+
+.preview-image{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    border-radius:inherit;
+
+    display:block;
+
+}
+
+
+
+/* ==========================================
+   HERO PREVIEW
+========================================== */
+
+.hero-preview{
+
+    display:none;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    border-radius:inherit;
+
+}
+
+
+.upload-box.has-image{
+
+    padding:0;
+
+    border:none;
+
+}
+
+
+
+.upload-box.has-image .upload-icon,
+.upload-box.has-image .upload-text,
+.upload-box.has-image small,
+.upload-box.has-image .upload-btn{
+
+    display:none;
+
+}
+
+
+/* ==========================================
+   HIDE UPLOAD CONTENT
+========================================== */
+
+.upload-content.hidden{
+
+    display:none;
+
+}
+
+
+
+
+/* ==========================================
+   HERO IMAGE CONTAINER (UPDATED PRO LOOK)
+========================================== */
+
+.hero-image-container {
+    display: none;
+    width: 100%;
+    height: 320px; /* ہائٹ کو 220px سے بڑھا دیا ہے تاکہ تصویر شاندار لگے */
+    overflow: hidden;
+    border-radius: var(--radius-large); /* ڈیشڈ باکس جیسا گول کنارہ */
+    margin-top: 20p;
+    box-shadow: var(--shadow-light); 
+}
+
+/* ==========================================
+   HERO IMAGE (100% FIT)
+========================================== */
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* سب سے اہم! یہ تصویر کو کناروں تک پرفیکٹ فٹ کرے گا */
+    display: block;
+}
+
+
+
+/* ==========================================
+   ACTIVE PREVIEW
+========================================== */
+
+.preview-slot.active{
+
+    border:2px solid var(--primary-color);
+
+    box-shadow:var(--shadow-glow);
+
+    transform:scale(1.05);
+
+    transition:all .25s ease;
+
+}
+
+
+
+
+/* ==========================================
+   REMOVE IMAGE BUTTON
+========================================== */
+
+.remove-image-btn{
+
+    position:absolute;
+
+    bottom:25px;
+
+    left:29px;
+
+    width:26px;
+
+    height:26px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:rgba(0,0,0,.65);
+
+    color:#fff;
+
+    cursor:pointer;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:.25s;
+
+    z-index:2;
+
+}
+
+.remove-image-btn:hover{
+
+    background:#ff3b30;
+
+    transform:scale(1.1);
+
+}
+
+
+/* ::::::::::Basic Information::::::::: */
+
+#customBrandGroup{
+
+display:none;
+
+opacity:0;
+
+transform:translateY(-10px);
+
+transition:.3s;
+
+}
+
+#customBrandGroup.show{
+
+display:flex;
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+/* ==========================================
+   CONDITION DETAILS GROUP
+========================================== */
+
+#conditionDetailsGroup{
+
+    display:none;
+
+    opacity:0;
+
+    transform:translateY(-10px);
+
+    transition:all .3s ease;
+
+}
+
+#conditionDetailsGroup.show{
+
+    display:flex;
+
+    flex-direction:column;
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+
+/* ==========================================
+   ERROR MESSAGE
+========================================== */
+
+.error-message{
+
+    display:block;
+
+    margin-top:6px;
+
+    font-size:13px;
+
+    color:#ff4d4f;
+
+    min-height:18px;
+
+}
+
+
+
+
+/* ==========================================
+   INPUT VALIDATION STATES
+========================================== */
+
+.input-error{
+
+    border:1px solid #ff4d4f !important;
+
+    box-shadow:0 0 10px rgba(255,77,79,.25);
+
+}
+
+.input-success{
+
+    border:1px solid #22c55e !important;
+
+    box-shadow:0 0 10px rgba(34,197,94,.25);
+
+}
+
+
+
+
+
+/* ==========================================
+   SMART UI: CONDITION PILLS (NEW UPGRADE)
+========================================== */
+
+/* ریڈیو بٹنز کو چھپانا */
+.hidden-radio {
+    display: none;
+}
+
+/* بٹنز کا کنٹینر */
+.smart-options-container {
+    display: flex;
+    gap: 12px;
+    margin-top: 5px;
+    /* flex-wrap ہم نے HTML میں بھی دے دیا ہے تاکہ سکرین چھوٹی ہونے پر ایڈجسٹ ہو جائے */
+}
+
+/* سمارٹ پِل کا نارمل ڈیزائن (باقی inputs جیسا) */
+.smart-pill {
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-color);
+    border-radius: 30px; /* گول کناروں کے لیے */
+    color: var(--text-color);
+    font-size: var(--font-normal);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    user-select: none;
+}
+
+/* Hover Effect (جب ماؤس اوپر جائے) */
+.smart-pill:hover {
+    border-color: var(--primary-color);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Selected State (جب یوزر کلک کر دے) */
+.hidden-radio:checked + .smart-pill {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-color: transparent;
+    color: #fff;
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-2px);
+}
+
+
+.color-swatch:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
+}
+
+
+
+
+
+
+

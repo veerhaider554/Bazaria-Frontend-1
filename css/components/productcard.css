@@ -1,0 +1,202 @@
+/* =========================================
+   BAZARIA PROFESSIONAL PRODUCT CARD (FINAL FIX)
+   ========================================= */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    padding: 13px 12px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* پروڈکٹ کارڈ - کمپیکٹ اور فکسڈ کنٹرول */
+.product-card {
+    width: 100% !important;
+    background: rgba(255, 255, 255, 0.01) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px !important;
+    padding: 5px !important;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    display: flex !important;
+    flex-direction: column !important;
+    box-sizing: border-box !important;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    height: auto !important;
+}
+
+.product-card:active {
+    transform: scale(0.98);
+}
+
+/* تصویر کا کنٹینر - فکسڈ ہائ이트 تاکہ کوئی بھی لمبی تصویر کارڈ کو خراب نہ کرے */
+.card-image-container {
+    position: relative !important;
+    width: 100% !important;
+    height: 100px !important; /* یہ کارڈ کو لمبا ہونے سے روک دے گا */
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    background: #111318 !important;
+}
+
+.card-image {
+    width: 100% !important;
+    height: 100% !important;
+    display: block !important;
+    object-fit: cover !important;
+}
+
+/* ویوز بیج (ٹاپ رائٹ) */
+.badge-views {
+    position: absolute !important;
+    top: 8px !important;
+    right: 8px !important;
+    display: flex !important;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 7px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255,0.01);
+    backdrop-filter: blur(6px);
+    color: #ffffff;
+    font-size: 10px;
+    z-index: 2;
+}
+
+
+/* کارڈ باڈی - تمام مواد کو سینٹر میں لانے کے لیے */
+.card-body {
+    padding: 6px 2px 2px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important; /* یہ ہورہیزیٹل سینٹر کرے گا */
+    justify-content: center !important;
+    gap: 3px !important;
+    text-align: center !important;
+}
+
+/* پروڈکٹ ٹائٹل - سینٹر اور سافٹ کلر */
+.product-title {
+    color: #9ca3af !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
+    width: 100% !important;
+    text-transform: capitalize !important;
+    
+    /* سنگل لائن ڈاٹ ڈاٹ سسٹم */
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+/* پرائس - بالکل درمیان میں */
+.product-price {
+    color: #00d9d9 !important;
+    font-size: 12px !important;
+    font-weight: 800 !important;
+    text-align: center !important;
+    width: 100% !important;
+}
+
+
+
+
+
+
+
+
+
+
+/* ==========================================
+   BAZARIA - DEAL BANNER SLIDER CSS
+========================================== */
+/* ==========================================
+   1. نیچے والے نارمل پروڈکٹ کارڈز (یہ جیسے پہلے تھے ویسے ہی رہیں گے)
+========================================== */
+.product-grid .product-card {
+    /* آپ کا پرانا یا نارمل ڈیزائن یہاں برقرار رہے گا */
+}
+
+
+/* ==========================================
+   2. صرف اوپر والا ڈیل سلائیڈر (Amazon Style Banner)
+========================================== */
+#dealProducts {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding: 10px 5px;
+}
+
+#dealProducts::-webkit-scrollbar {
+    display: none;
+}
+
+/* صرف ڈیل سلائیڈر کے اندر موجود کارڈز */
+#dealProducts .product-card {
+    flex: 0 0 auto;
+    width: 250px; /* چوڑائی تھوڑی بڑھا دی */
+    height: 220px; /* اونچائی بھی بڑھا دی (یہاں سے آپ لمبا/چھوٹا کر سکتے ہیں) */
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    overflow: hidden;
+    padding: 0 !important;
+    scroll-snap-align: center;
+    backdrop-filter: blur(12px);
+    transition: transform 0.3s ease;
+    
+    flex: 0 0 auto !important;
+    width: 280px !important;    /* چوڑائی */
+    height: 180px !important;
+}
+
+/* ڈیل بینر کے اندر امیج کا سائز */
+#dealProducts .card-image-container {
+    background: #0f172a;
+    
+    width: 100% !important;
+    height: 100% !important; 
+    overflow: hidden !important;
+    
+}
+
+#dealProducts .card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* یہ سب سے اہم ہے، یہ تصویر کو کٹے بغیر پورے باکس میں فٹ رکھے گا */
+    transition: transform 0.3s ease;
+    
+}
+
+/* اگر آپ ڈیل بینر سے نام اور پرائس بالکل ہٹانا چاہتے ہیں (تاکہ صرف صاف ستھری تصاویر سلائیڈ ہوں): */
+#dealProducts .card-body {
+    display: none; 
+    
+}
+
+
+
+
+
+/* اپنی style.css میں یہ شامل کریں */
+
+.product-card {
+    /* آپ کی موجودہ پراپرٹیز یہاں ہوں گی */
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease !important;
+    cursor: pointer;
+}
+
+.product-card.clicked {
+    transform: scale(0.95) !important; /* کلک کرتے ہی ہلکا سا سکڑنا ایک پریمیم فیل دیتا ہے */
+    opacity: 0.7 !important;
+    transition: transform 0.2s ease, opacity 0.2s ease !important;
+}

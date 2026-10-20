@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bazaria Profile</title>
+
+  <link rel="stylesheet" href="./css/pages/profile.css">
+  <link rel="stylesheet" href="../css/global/reset.css">
+  <link rel="stylesheet" href="../css/global/variables.css">
+  <link rel="stylesheet" href="../css/global/style.css">
+  <link rel="stylesheet" href="../css/components/navbar.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+<!-- ===================== -->
+<!-- TOP BAR -->
+<!-- ===================== -->
+
+<header class="topbar">
+
+  <h2 class="logo">Profile</h2>
+
+  <div class="top-actions">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-ellipsis-vertical"></i>
+  </div>
+
+</header>
+
+<!-- ===================== -->
+<!-- PROFILE HEADER -->
+<!-- ===================== -->
+
+<!-- ===================== -->
+<!-- PROFILE HEADER -->
+<!-- ===================== -->
+
+<section class="profile-header">
+
+  <div class="cover"></div>
+
+  <div class="profile-info">
+
+    <!-- PROFILE IMAGE -->
+    <img
+      class="profile-pic"
+      src="assets/images/profile-user.jpg"
+    >
+
+    <!-- USER NAME -->
+    <h2 class="profile-name">
+      Guest User
+    </h2>
+
+    <!-- BIO -->
+    <p class="bio">
+      Login to access your Bazaria profile
+    </p>
+
+    <!-- GUEST BUTTONS -->
+    <div class="guest-buttons">
+
+      <a href="login.html">
+        <button class="login-btn">
+          Login
+        </button>
+      </a>
+      
+    </div>
+
+    <!-- EDIT PROFILE -->
+    <button class="edit-btn" style="display:none;">
+      Edit Profile
+    </button>
+
+  </div>
+
+</section>
+
+<!-- ===================== -->
+<!-- STATS -->
+<!-- ===================== -->
+
+<section class="stats">
+
+  <div class="stat">
+    <h3>120</h3>
+    <p>Products</p>
+  </div>
+
+  <div class="stat">
+    <h3>4.5K</h3>
+    <p>Likes</p>
+  </div>
+
+  <div class="stat">
+    <h3>18K</h3>
+    <p>Views</p>
+  </div>
+
+  <div class="stat">
+    <h3>320</h3>
+    <p>Sold</p>
+  </div>
+
+  <div class="stat">
+    <h3>85</h3>
+    <p>Saved</p>
+  </div>
+
+</section>
+
+<!-- ===================== -->
+<!-- TABS -->
+<!-- ===================== -->
+
+<section class="tabs">
+
+  <button class="tab active">Products</button>
+  <button class="tab">Saved</button>
+  <button class="tab">Orders</button>
+  <button class="tab">Wishlist</button>
+  <button class="tab">Reviews</button>
+
+</section>
+
+<!-- ===================== -->
+<!-- PRODUCTS GRID -->
+<!-- ===================== -->
+
+<section class="products">
+
+  <div class="product-card">
+
+    <img src="https://picsum.photos/300/300?1">
+
+    <div class="info">
+
+      <h3>Smart Watch</h3>
+
+      <p class="price">$99</p>
+
+      <div class="meta">
+        <span><i class="fa-solid fa-heart"></i> 1.2K</span>
+        <span><i class="fa-solid fa-eye"></i> 5K</span>
+        <span><i class="fa-solid fa-cart-shopping"></i> 210</span>
+      </div>
+
+      <button class="buy-btn">Buy Now</button>
+
+    </div>
+
+  </div>
+
+  <div class="product-card">
+
+    <img src="https://picsum.photos/300/300?2">
+
+    <div class="info">
+
+      <h3>Headphones</h3>
+
+      <p class="price">$59</p>
+
+      <div class="meta">
+        <span><i class="fa-solid fa-heart"></i> 900</span>
+        <span><i class="fa-solid fa-eye"></i> 3.2K</span>
+        <span><i class="fa-solid fa-cart-shopping"></i> 120</span>
+      </div>
+
+      <button class="buy-btn">Buy Now</button>
+
+    </div>
+
+  </div>
+
+</section>
+
+<div id="bottom-nav-container"></div>
+    
+    <script>
+fetch("components/navbar-bottom.html")
+.then(response => response.text())
+.then(data => {
+    document.getElementById("bottom-nav-container").innerHTML = data;
+     if(typeof initNavbar === "function"){
+        initNavbar();
+    }
+});
+</script>
+
+<script src="./js/pages/profile.js"></script>
+<script src="../js/components/navbar.js"></script>
+
+</body>
+</html>

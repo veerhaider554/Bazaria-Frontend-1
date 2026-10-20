@@ -1,0 +1,136 @@
+ *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      background:#050816;
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      overflow:hidden;
+      position:relative;
+    }
+
+    body::before{
+      content:'';
+      position:absolute;
+      width:400px;
+      height:400px;
+      background:#00aeff;
+      filter:blur(180px);
+      top:-120px;
+      left:-120px;
+      opacity:0.4;
+    }
+
+    body::after{
+      content:'';
+      position:absolute;
+      width:350px;
+      height:350px;
+      background:#0066ff;
+      filter:blur(180px);
+      bottom:-120px;
+      right:-120px;
+      opacity:0.3;
+    }
+
+    .login-container{
+      width:95%;
+      max-width:420px;
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.1);
+      backdrop-filter:blur(20px);
+      border-radius:25px;
+      padding:35px 28px;
+      position:relative;
+      z-index:2;
+      box-shadow:0 0 40px rgba(0,174,255,0.15);
+    }
+
+    .logo{
+      text-align:center;
+      font-size:32px;
+      font-weight:700;
+      color:#fff;
+      margin-bottom:8px;
+    }
+
+    .logo span{
+      color:#00aeff;
+    }
+
+    .subtitle{
+      text-align:center;
+      color:#a8b3cf;
+      font-size:14px;
+      margin-bottom:28px;
+    }
+
+    .input-group{
+      margin-bottom:18px;
+    }
+
+    .input-group input{
+      width:100%;
+      padding:15px;
+      border:none;
+      outline:none;
+      border-radius:14px;
+      background:rgba(255,255,255,0.07);
+      color:#fff;
+      font-size:14px;
+      border:1px solid transparent;
+      transition:0.3s;
+    }
+
+    .input-group input:focus{
+      border-color:#00aeff;
+      box-shadow:0 0 15px rgba(0,174,255,0.3);
+    }
+
+    .input-group input::placeholder{
+      color:#9aa8c7;
+    }
+
+    .login-btn{
+      width:100%;
+      padding:15px;
+      border:none;
+      border-radius:15px;
+      background:#00aeff;
+      color:#fff;
+      font-size:15px;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .login-btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 0 20px rgba(0,174,255,0.5);
+    }
+
+    .message{
+      text-align:center;
+      margin-top:15px;
+      font-size:14px;
+      color:#00ff99;
+    }
+
+    .bottom-text{
+      text-align:center;
+      margin-top:18px;
+      color:#b7c1d8;
+      font-size:14px;
+    }
+
+    .bottom-text a{
+      color:#00aeff;
+      text-decoration:none;
+      font-weight:600;
+    }

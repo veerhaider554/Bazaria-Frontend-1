@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    
+
+    <meta
+        name="description"
+        content="Bazaria product details"
+    >
+
+    <title>Bazaria | Product Details</title>
+
+
+    <!-- ==========================================
+         GLOBAL CSS
+    =========================================== -->
+
+    <link
+        rel="stylesheet"
+        href="../css/global/reset.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/global/variables.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/global/style.css"
+    >
+
+
+    <!-- ==========================================
+         PRODUCT DETAILS CSS
+    =========================================== -->
+
+    <link
+        rel="stylesheet"
+        href="../css/pages/product-details.css"
+    >
+
+
+  <link rel="stylesheet" href="../css/components/navbar.css">
+
+
+
+    <!-- ==========================================
+         FONT AWESOME
+    =========================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+    
+
+</head>
+
+
+<body>
+  
+
+    <!-- ==================================================
+         01. PRODUCT DETAILS HEADER
+    =================================================== -->
+
+
+<!--     <div id="navbar-container"></div> -->
+
+
+
+<!-- ==================================================
+     PRODUCT DETAILS PAGE
+=================================================== -->
+
+<main class="product-details-page">
+
+
+  
+
+
+
+
+    <!-- ==================================================
+         02. PRODUCT IMAGE GALLERY
+    =================================================== -->
+
+    <section
+        class="product-gallery-section"
+        aria-label="Product images"
+    >
+
+
+        <!-- Main Image Area -->
+
+        <div class="product-main-image-wrapper">
+
+
+            <!-- Image Counter -->
+
+            <div
+                class="product-image-counter"
+                aria-label="Current image"
+            >
+
+                <span id="currentImageNumber">
+                    1
+                </span>
+
+                <span>
+                    /
+                </span>
+
+                <span id="totalImageNumber">
+                    10
+                </span>
+
+            </div>
+
+
+            <!-- Like Button -->
+
+            <button
+                type="button"
+                class="product-image-like-btn"
+                aria-label="Like product"
+            >
+
+                <i class="fa-regular fa-heart"></i>
+
+            </button>
+
+
+            <!-- Previous Image -->
+
+<button
+    type="button"
+    class="gallery-nav-btn gallery-prev-btn"
+    aria-label="Previous product image"
+>
+
+    <i class="fa-solid fa-chevron-left"></i>
+
+</button>
+
+
+            <!-- Main Product Image -->
+
+            <div class="product-main-image">
+
+                <img
+                    id="mainProductImage"
+                    src="./assets/images/products1.jpg"
+                    alt="Product image"
+                >
+
+            </div>
+
+
+            <!-- Next Image -->
+
+<button
+    type="button"
+    class="gallery-nav-btn gallery-next-btn"
+    aria-label="Next product image"
+>
+
+    <i class="fa-solid fa-chevron-right"></i>
+
+</button>
+
+
+        </div>
+
+
+
+        <!-- Thumbnail Gallery -->
+
+        <div
+            class="product-thumbnail-wrapper"
+            aria-label="Product image thumbnails"
+        >
+
+            <div
+                class="product-thumbnail-list"
+                id="productThumbnailList"
+            >
+
+
+                <!-- Thumbnail 01 -->
+
+                <button
+                    type="button"
+                    class="product-thumbnail active"
+                    data-image-index="0"
+                    aria-label="View product image 1"
+                >
+
+                    <img
+                        src="./assets/images/products1.jpg"
+                        alt="Product thumbnail 1"
+                    >
+
+                </button>
+
+
+                <!-- Thumbnail 02 -->
+
+                <button
+                    type="button"
+                    class="product-thumbnail"
+                    data-image-index="1"
+                    aria-label="View product image 2"
+                >
+
+                    <img
+                        src="./assets/images/products3.jpg"
+                        alt="Product thumbnail 2"
+                    >
+
+                </button>
+
+
+                <!-- Thumbnail 03 -->
+
+                <button
+                    type="button"
+                    class="product-thumbnail"
+                    data-image-index="2"
+                    aria-label="View product image 3"
+                >
+
+                    <img
+                        src="./assets/images/products4.jpg"
+                        alt="Product thumbnail 3"
+                    >
+
+                </button>
+
+
+                <!-- Thumbnail 04 -->
+
+                <button
+                    type="button"
+                    class="product-thumbnail"
+                    data-image-index="3"
+                    aria-label="View product image 4"
+                >
+
+                    <img
+                        src="./assets/images/products5.jpg"
+                        alt="Product thumbnail 4"
+                    >
+
+                </button>
+
+
+                <!-- Thumbnail 05 -->
+
+                <button
+                    type="button"
+                    class="product-thumbnail"
+                    data-image-index="4"
+                    aria-label="View product image 5"
+                >
+
+                    <img
+                        src="./assets/images/products2.jpg"
+                        alt="Product thumbnail 5"
+                    >
+
+                </button>
+
+
+                <!-- Thumbnail 06 -->
+
+                <button
+                    type="button"
+                    class="product-thumbnail"
+                    data-image-index="5"
+                    aria-label="View product image 6"
+                >
+
+                    <img
+                        src="./assets/images/products4.jpg"
+                        alt="Product thumbnail 6"
+                    >
+
+                </button>
+
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ==================================================
+         03. PRODUCT BASIC INFORMATION (With Trust Section Inside)
+=================================================== -->
+
+    <section class="product-info-section">
+
+
+        <!-- Product Title -->
+
+        <div class="product-title-row">
+
+            <h1
+                class="product-title"
+                id="productTitle"
+            >
+                Product Name
+            </h1>
+
+
+            <span
+                class="verified-product-badge"
+                aria-label="Verified product"
+            >
+
+                <i class="fa-solid fa-circle-check"></i>
+
+            </span>
+
+        </div>
+
+
+
+        <!-- Rating / Views / Likes -->
+
+        <div class="product-stats">
+
+
+            <div class="product-rating">
+
+                <span class="rating-stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+
+                <span
+                    id="productRating"
+                    class="rating-value"
+                >
+                    4.8
+                </span>
+
+                <span
+                    id="reviewCount"
+                    class="review-count"
+                >
+                    (128 Reviews)
+                </span>
+
+            </div>
+
+
+            <div class="product-views">
+
+                <i class="fa-regular fa-eye"></i>
+
+                <span id="productViews">
+                    1.2K Views
+                </span>
+
+            </div>
+
+
+            <div class="product-likes">
+
+                <i class="fa-solid fa-heart"></i>
+
+                <span id="productLikes">
+                    243 Likes
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- Price Area -->
+
+        <div class="product-price-area">
+
+
+            <span
+                class="product-current-price"
+                id="productPrice"
+            >
+                Rs 0
+            </span>
+
+
+            <span
+                class="product-original-price"
+                id="productOriginalPrice"
+            >
+                Rs 0
+            </span>
+
+
+            <span
+                class="product-discount"
+                id="productDiscount"
+            >
+                0% OFF
+            </span>
+
+
+        </div>
+
+
+
+        <!-- Stock Information -->
+
+        <div class="product-stock-area">
+
+            <span
+                class="product-stock-status"
+                id="productStockStatus"
+            >
+                In Stock
+            </span>
+
+
+            <span class="stock-separator">
+                •
+            </span>
+
+
+            <span
+                class="product-stock-count"
+                id="productStockCount"
+            >
+                0 items left
+            </span>
+
+        </div>
+
+
+
+        <!-- Trust / Buying Benefits Grid (Moved inside Product Info Box) -->
+
+        <div class="product-trust-grid">
+
+            <div class="trust-item">
+
+                <div class="trust-icon">
+                    <i class="fa-regular fa-circle-check"></i>
+                </div>
+
+                <div class="trust-content">
+
+                    <strong>
+                        100% Original
+                    </strong>
+
+                    <span>
+                        Verified Product
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="trust-item">
+
+                <div class="trust-icon">
+                    <i class="fa-solid fa-rotate-left"></i>
+                </div>
+
+                <div class="trust-content">
+
+                    <strong>
+                        7 Days
+                    </strong>
+
+                    <span>
+                        Return
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="trust-item">
+
+                <div class="trust-icon">
+                    <i class="fa-regular fa-credit-card"></i>
+                </div>
+
+                <div class="trust-content">
+
+                    <strong>
+                        Secure
+                    </strong>
+
+                    <span>
+                        Payment
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="trust-item">
+
+                <div class="trust-icon">
+                    <i class="fa-solid fa-truck-fast"></i>
+                </div>
+
+                <div class="trust-content">
+
+                    <strong>
+                        Fast
+                    </strong>
+
+                    <span>
+                        Delivery
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+
+
+
+
+    <!-- ==================================================
+         06. PRODUCT DESCRIPTION
+    =================================================== -->
+
+    <section class="product-description-section product-content-card">
+
+
+        <div class="content-section-header">
+
+            <div class="content-title">
+
+                <i class="fa-regular fa-message"></i>
+
+                <h2>
+                    Product Description
+                </h2>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="content-toggle-btn"
+                aria-label="Toggle product description"
+            >
+
+                <i class="fa-solid fa-chevron-down"></i>
+
+            </button>
+
+        </div>
+
+
+        <div class="content-section-body">
+
+            <p
+                id="productDescription"
+                class="product-description"
+            >
+                Product description will appear here.
+            </p>
+
+
+            <button
+                type="button"
+                class="read-more-btn"
+            >
+                Read More
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ==================================================
+         07. PRODUCT SPECIFICATIONS
+    =================================================== -->
+
+    <section class="product-specifications-section product-content-card">
+
+
+        <div class="content-section-header">
+
+            <div class="content-title">
+
+                <i class="fa-solid fa-list-check"></i>
+
+                <h2>
+                    Specifications
+                </h2>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="content-toggle-btn"
+                aria-label="Toggle specifications"
+            >
+
+                <i class="fa-solid fa-chevron-down"></i>
+
+            </button>
+
+        </div>
+
+
+        <div
+            class="content-section-body specifications-body"
+            id="productSpecifications"
+        >
+
+            <!-- Specifications will be generated here by JS -->
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ==================================================
+         08. PRODUCT DETAILS
+    =================================================== -->
+
+    <section class="product-details-section product-content-card">
+
+
+        <div class="content-section-header">
+
+            <div class="content-title">
+
+                <i class="fa-regular fa-rectangle-list"></i>
+
+                <h2>
+                    Product Details
+                </h2>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="content-toggle-btn"
+                aria-label="Toggle product details"
+            >
+
+                <i class="fa-solid fa-chevron-down"></i>
+
+            </button>
+
+        </div>
+
+
+        <div
+            class="content-section-body product-details-body"
+            id="productDetails"
+        >
+
+            <!-- Product details will be generated by JS -->
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ==================================================
+         09. DELIVERY & LOCATION
+    =================================================== -->
+
+    <section class="delivery-location-section product-content-card">
+
+
+        <div class="content-section-header">
+
+            <div class="content-title">
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                <h2>
+                    Delivery & Location
+                </h2>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="content-toggle-btn"
+                aria-label="Toggle delivery information"
+            >
+
+                <i class="fa-solid fa-chevron-down"></i>
+
+            </button>
+
+        </div>
+
+
+        <div class="content-section-body">
+
+
+            <div class="delivery-info-row">
+
+                <span>
+                    Delivery Available
+                </span>
+
+                <strong id="deliveryAvailable">
+                    Yes
+                </strong>
+
+            </div>
+
+
+            <div class="delivery-info-row">
+
+                <span>
+                    Delivery Charges
+                </span>
+
+                <strong id="deliveryCharges">
+                    Rs 0
+                </strong>
+
+            </div>
+
+
+            <div class="delivery-info-row">
+
+                <span>
+                    Pickup Available
+                </span>
+
+                <strong id="pickupAvailable">
+                    Yes
+                </strong>
+
+            </div>
+
+
+            <div class="delivery-info-row">
+
+                <span>
+                    Location
+                </span>
+
+                <strong id="productLocation">
+                    Islamabad
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+
+
+    <!-- ==================================================
+         05. SELLER PROFILE
+    =================================================== -->
+
+    <section class="seller-section">
+
+
+        <div class="seller-information">
+
+
+            <!-- Seller Avatar -->
+
+            <div class="seller-avatar">
+
+                <img
+                    id="sellerImage"
+                    src="./assets/images/profile-user.jpg"
+                    alt="Seller profile"
+                >
+
+            </div>
+
+
+
+            <!-- Seller Details -->
+
+            <div class="seller-details">
+
+                <span class="seller-label">
+                    Sold by
+                </span>
+
+
+                <div class="seller-name-row">
+
+                    <h2
+                        class="seller-name"
+                        id="sellerName"
+                    >
+                        Seller Name
+                    </h2>
+
+
+                    <span
+                        class="seller-verified"
+                        aria-label="Verified seller"
+                    >
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                    </span>
+
+                </div>
+
+
+                <div class="seller-rating">
+
+                    <i class="fa-solid fa-star"></i>
+
+                    <span id="sellerRating">
+                        4.9
+                    </span>
+
+                    <span id="sellerReviewCount">
+                        (256 Reviews)
+                    </span>
+
+                </div>
+
+
+                <span
+                    class="seller-location"
+                    id="sellerLocation"
+                >
+                    Islamabad, Pakistan
+                </span>
+
+
+                <span
+                    class="seller-member-since"
+                    id="sellerMemberSince"
+                >
+                    Member since Jan 2023
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- Seller Actions -->
+
+        <div class="seller-actions">
+
+
+            <button
+                type="button"
+                class="seller-chat-btn"
+            >
+
+                <i class="fa-regular fa-comment-dots"></i>
+
+                <span>
+                    Chat with Seller
+                </span>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="seller-profile-btn"
+            >
+
+                <i class="fa-regular fa-user"></i>
+
+                <span>
+                    View Seller Profile
+                </span>
+
+            </button>
+
+
+        </div>
+
+
+    </section>
+
+
+
+
+    <!-- ==================================================
+         10. PRODUCT ACTION BAR
+    =================================================== -->
+
+    <section class="product-action-section">
+
+
+        <button
+            type="button"
+            class="product-action-btn like-action-btn"
+            aria-label="Like product"
+        >
+
+            <i class="fa-regular fa-heart"></i>
+
+            <span>
+                Like
+            </span>
+
+        </button>
+
+
+        <button
+            type="button"
+            class="product-action-btn chat-action-btn"
+        >
+
+            <i class="fa-regular fa-comment-dots"></i>
+
+            <span>
+                Chat
+            </span>
+
+        </button>
+
+
+        <button
+            type="button"
+            class="product-action-btn cart-action-btn"
+        >
+
+            <i class="fa-solid fa-cart-shopping"></i>
+
+            <span>
+                Add to Cart
+            </span>
+
+        </button>
+
+
+        <button
+            type="button"
+            class="product-action-btn buy-now-action-btn"
+        >
+
+            <i class="fa-solid fa-bolt"></i>
+
+            <span>
+                Buy Now
+            </span>
+
+        </button>
+
+
+    </section>
+
+
+
+    <!-- ==================================================
+         11. RELATED PRODUCTS
+    =================================================== -->
+
+    <section class="related-products-section">
+
+
+        <div class="related-products-header">
+
+            <h2>
+                You May Also Like
+            </h2>
+
+
+            <button
+                type="button"
+                class="view-all-products-btn"
+            >
+
+                <span>
+                    View All
+                </span>
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </button>
+
+        </div>
+
+
+
+        <!-- Related Product List -->
+
+        <div
+            class="related-products-list"
+            id="relatedProductsList"
+        >
+
+
+            <!-- Related Product Card 01 -->
+
+            <article
+                class="related-product-card"
+                data-product-id=""
+            >
+
+                <div class="related-product-image">
+
+                    <img
+                        src=""
+                        alt="Related product"
+                    >
+
+
+                    <button
+                        type="button"
+                        class="related-product-like"
+                        aria-label="Like related product"
+                    >
+
+                        <i class="fa-regular fa-heart"></i>
+
+                    </button>
+
+                </div>
+
+
+                <div class="related-product-info">
+
+                    <h3>
+                        Related Product
+                    </h3>
+
+
+                    <strong class="related-product-price">
+                        Rs 0
+                    </strong>
+
+
+                    <div class="related-product-rating">
+
+                        <i class="fa-solid fa-star"></i>
+
+                        <span>
+                            4.8
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- Related Product Card 02 -->
+
+            <article
+                class="related-product-card"
+                data-product-id=""
+            >
+
+                <div class="related-product-image">
+
+                    <img
+                        src=""
+                        alt="Related product"
+                    >
+
+
+                    <button
+                        type="button"
+                        class="related-product-like"
+                        aria-label="Like related product"
+                    >
+
+                        <i class="fa-regular fa-heart"></i>
+
+                    </button>
+
+                </div>
+
+
+                <div class="related-product-info">
+
+                    <h3>
+                        Related Product
+                    </h3>
+
+
+                    <strong class="related-product-price">
+                        Rs 0
+                    </strong>
+
+
+                    <div class="related-product-rating">
+
+                        <i class="fa-solid fa-star"></i>
+
+                        <span>
+                            4.8
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- Related Product Card 03 -->
+
+            <article
+                class="related-product-card"
+                data-product-id=""
+            >
+
+                <div class="related-product-image">
+
+                    <img
+                        src=""
+                        alt="Related product"
+                    >
+
+
+                    <button
+                        type="button"
+                        class="related-product-like"
+                        aria-label="Like related product"
+                    >
+
+                        <i class="fa-regular fa-heart"></i>
+
+                    </button>
+
+                </div>
+
+
+                <div class="related-product-info">
+
+                    <h3>
+                        Related Product
+                    </h3>
+
+
+                    <strong class="related-product-price">
+                        Rs 0
+                    </strong>
+
+
+                    <div class="related-product-rating">
+
+                        <i class="fa-solid fa-star"></i>
+
+                        <span>
+                            4.8
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- Related Product Card 04 -->
+
+            <article
+                class="related-product-card"
+                data-product-id=""
+            >
+
+                <div class="related-product-image">
+
+                    <img
+                        src=""
+                        alt="Related product"
+                    >
+
+
+                    <button
+                        type="button"
+                        class="related-product-like"
+                        aria-label="Like related product"
+                    >
+
+                        <i class="fa-regular fa-heart"></i>
+
+                    </button>
+
+                </div>
+
+
+                <div class="related-product-info">
+
+                    <h3>
+                        Related Product
+                    </h3>
+
+
+                    <strong class="related-product-price">
+                        Rs 0
+                    </strong>
+
+
+                    <div class="related-product-rating">
+
+                        <i class="fa-solid fa-star"></i>
+
+                        <span>
+                            4.8
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+
+    </section>
+
+
+
+</main>
+
+
+
+<!-- ==================================================
+     JAVASCRIPT
+=================================================== -->
+
+<!-- JS abhi intentionally connect nahi kar rahe -->
+
+<script src="../js/components/navbar.js"></script>
+<script src="../js/components/layout.js"></script>
+<script src="../js/pages/product-details.js"></script>
+<script src="../js/components/main.js"></script>
+
+  <script src="../js/pages/home.js"></script>
+
+  <script src="../js/components/routes.js"></script>
+
+
+</body>
+
+</html>

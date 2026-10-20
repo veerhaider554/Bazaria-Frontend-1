@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Bazaria Register</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="../css/global/reset.css">
+  <link rel="stylesheet" href="../css/global/variables.css">
+  <link rel="stylesheet" href="../css/global/style.css">
+   <link rel="stylesheet" href="../css/pages/register.css">
+</head>
+<body>
+
+  <div class="register-container">
+
+    <div class="logo">
+      Baza<span>ria</span>
+    </div>
+
+    <div class="subtitle">
+      Create your secure marketplace account
+    </div>
+
+    <!-- Role Selection -->
+
+    <div class="role-select">
+
+      <button class="role-btn active" data-role="customer">
+        Customer
+      </button>
+
+      <button class="role-btn" data-role="supplier">
+        Supplier
+      </button>
+
+      <button class="role-btn" data-role="reseller">
+        Reseller
+      </button>
+
+    </div>
+
+    <!-- Form -->
+
+    <form id="registerForm">
+
+      <div class="input-group">
+        <input type="text" id="name" placeholder="Full Name" required>
+      </div>
+
+      <div class="input-group">
+        <input type="email" id="email" placeholder="Email Address" required>
+      </div>
+
+      <div class="input-group">
+        <input type="password" id="password" placeholder="Strong Password" required>
+      </div>
+
+      <button type="submit" class="register-btn">
+        Create Account
+      </button>
+
+    </form>
+
+    <div class="message" id="message"></div>
+
+    <div class="bottom-text">
+      Already have an account?
+      <a href="login.html">Login</a>
+    </div>
+
+  </div>
+
+
+
+
+
+  <script src="./js/pages/register.js"></script>
+
+</body>
+</html>

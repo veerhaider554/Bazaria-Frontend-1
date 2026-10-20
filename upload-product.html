@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Bazaria | Upload-product</title>
+  <!-- ::::::::::Links:::::::::::::::: -->
+  <link rel="stylesheet" href="../css/global/reset.css">
+  <link rel="stylesheet" href="../css/global/variables.css">
+  <link rel="stylesheet" href="../css/global/style.css">
+  <link rel="stylesheet" href="../css/components/navbar.css">
+  <link rel="stylesheet" href="../css/pages/upload-product.css">
+  <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+  
+  
+  
+<body>
+  
+  
+<!--   ::::::::::Top-Bar:::::::::::::: -->
+ <header class="top-bar">
+
+    <button class="back-btn">
+        ←
+    </button>
+
+    <h1>Upload Product</h1>
+
+</header>
+<!-- :::::::::Image-section::::::::::: -->
+<main class="upload-container">
+
+    <!-- ==========================================
+     PRODUCT IMAGES
+========================================== -->
+
+<section class="images-section glass-card">
+
+    <h2>📸 Product Images</h2>
+
+<!--     <p>
+    Great photos help your product sell faster.
+</p> -->
+
+    <div class="upload-box">
+
+<div class="upload-content">
+
+        <div class="upload-icon">
+            📷
+        </div>
+
+      
+
+        
+            <p class="upload-text">
+               Drag & Drop or Click to Upload
+            </p>
+        
+        
+
+        <small>
+          Max 10 Photos
+        </small>
+
+        <input
+    type="file"
+    id="productImages"
+    multiple
+    accept="image/jpeg, image/png, image/jpg, image/webp, image/avif"
+    hidden
+>
+
+        
+        
+
+        <button
+            id="uploadBtn"
+            type="button"
+            class="btn-primary upload-btn">
+
+            📷 Add Photos
+
+        </button>
+        
+        <img
+    id="heroPreview"
+    class="hero-preview"
+    alt="Product Image">
+
+    </div>
+    
+    <div class="hero-image-container"></div>
+    
+</div>
+    
+    
+    
+
+<!-- ==========================================
+     IMAGE PREVIEW AREA
+========================================== -->
+<div class="image-preview">
+
+    <div class="preview-head">
+        <div>
+            <h3>Photos <span id="photoCounter">(0/10)</span>
+            </h3>
+        
+        </div>
+
+
+    </div>
+
+    <div class="preview-strip">
+
+        <div class="preview-slot preview-empty">
+            <i class="fa-regular fa-image"></i>
+        </div>
+
+        <div class="preview-slot preview-empty">
+            <i class="fa-regular fa-image"></i>
+        </div>
+
+        <div class="preview-slot preview-empty">
+            <i class="fa-regular fa-image"></i>
+        </div>
+
+        <div class="preview-slot preview-empty">
+            <i class="fa-regular fa-image"></i>
+        </div>
+
+        <div class="preview-slot preview-empty">
+            <i class="fa-regular fa-image"></i>
+        </div>
+
+        <div class="preview-slot preview-empty">
+            <i class="fa-regular fa-image"></i>
+        </div>
+
+        <div class="preview-slot preview-empty">
+            <i class="fa-regular fa-image"></i>
+        </div>
+
+        <div class="preview-slot preview-empty">
+            <i class="fa-regular fa-image"></i>
+        </div>
+
+        <div class="preview-slot preview-empty">
+            <i class="fa-regular fa-image"></i>
+        </div>
+
+        <div class="preview-slot preview-empty">
+            <i class="fa-regular fa-image"></i>
+        </div>
+
+    </div>
+    
+            <button type="button" class="add-more-btn" id="addMoreBtn">
+            <i class="fa-solid fa-plus"></i>
+        </button>
+
+</div>
+
+       
+
+    
+
+</section>
+
+
+ <!-- ::::::Basic-information::::::::: -->
+ <section class="basic-info-section glass-card">
+ 
+    <h2>Basic Information</h2>
+ 
+ <!-- .......Product Name div......... -->
+    <div class="input-group">
+ 
+    <label for="product-name">
+        Product Name <span class="required">*</span>
+    </label>
+ 
+    <input
+        type="text"
+        id="product-name"
+        placeholder="e.g. Apple AirPods Pro 2"
+        maxlength="100">
+        
+        <small
+id="productNameError"
+class="error-message">
+
+</small>
+ 
+    <small class="input-tip">
+        💡 Choose a clear and searchable product title.
+    </small>
+ 
+    <div
+        class="character-counter"
+        id="productNameCounter">
+ 
+        0 / 100
+ 
+    </div>
+ 
+ </div>
+ 
+ 
+<!-- .......Catagories div............ -->
+<div class="input-group">
+
+    <label for="category">
+        Category
+        <span class="required">*</span>
+    </label>
+
+    <select
+        id="category"
+        required>
+
+        <option value="">
+            Select Category
+        </option>
+
+    </select>
+
+    <small class="input-tip">
+        💡 Select the category that best matches your product.
+    </small>
+
+</div>
+ 
+ 
+ <!-- .......Sub Category div............ -->
+
+<div class="input-group">
+
+    <label for="subCategory">
+        Sub Category
+        <span class="required">*</span>
+    </label>
+
+    <select
+        id="subCategory"
+        required>
+
+        <option value="">
+            Select Sub Category
+        </option>
+
+    </select>
+
+    <small class="input-tip">
+        💡 Select your product type.
+    </small>
+
+</div>
+ 
+ 
+ <!-- .........Brand div.............. -->
+ <div class="input-group">
+ 
+    <label for="brand">
+ 
+        Brand
+ 
+    </label>
+ 
+    <select id="brand" required>
+
+    <option value="">
+        Select Brand
+    </option>
+
+    </select>
+ 
+    <small class="input-tip">
+        💡 Choose your product brand.
+    </small>
+ 
+ </div>
+ 
+ <!-- .......Other Brand div.......... -->
+<div
+class="input-group"
+id="customBrandGroup">
+
+<label for="custom-brand">
+Enter Brand Name
+</label>
+
+<input
+type="text"
+id="custom-brand"
+placeholder="Enter your brand name">
+
+</div>
+
+
+<!-- ==========================================
+     PRO CONDITION DROPDOWN
+========================================== -->
+<div class="input-group">
+    <label for="condition">
+        Condition <span class="required">*</span>
+    </label>
+
+    <select id="condition" required class="pro-select-dropdown">
+        <option value="" disabled selected>✨ Select Product Condition</option>
+        <option value="new">🆕 Brand New (Unopened)</option>
+        <option value="like-new">✨ Like New (Pristine Condition)</option>
+        <option value="excellent">💎 Excellent (Minor Usage)</option>
+        <option value="good">👍 Good (Normal Wear & Tear)</option>
+        <option value="used">🔄 Used / Working Fine</option>
+        <option value="refurbished">🛠️ Refurbished / Restored</option>
+    </select>
+
+    <small class="input-tip">
+        💡 Select the true condition so buyers know what to expect.
+    </small>
+</div>
+
+
+
+
+
+<!-- .......Condation Detils.......... -->
+<div
+class="input-group"
+id="conditionDetailsGroup"
+hidden>
+
+    <label for="condition-details">
+
+        Condition Details
+
+    </label>
+
+    <textarea
+        id="condition-details"
+        rows="4"
+        maxlength="300"
+        placeholder="Describe scratches, repairs or anything buyers should know...">
+    </textarea>
+
+    <small class="input-tip">
+        💡 Honest details help buyers trust your product.
+    </small>
+
+    <div
+        class="character-counter"
+        id="conditionCounter">
+
+        0 / 300
+
+    </div>
+
+</div>
+
+
+<!-- .......Short Tagline div........ -->
+<div class="input-group">
+
+    <label for="tagline">
+
+        Short Tagline (Optional)
+
+    </label>
+
+    <input
+        type="text"
+        id="tagline"
+        placeholder="e.g. Original Product | 1 Year Warranty"
+        maxlength="60">
+
+    <small class="input-tip">
+        💡 A short highlight for your product.
+    </small>
+
+    <div
+        class="character-counter"
+        id="taglineCounter">
+
+        0 / 60
+
+    </div>
+
+</div>
+ 
+ </section>
+ 
+ 
+<!-- ;;;;;PRODUCT SPECIFICATIONS;;;;;; -->
+
+<section class="specifications-section glass-card">
+
+    <h2>Product Specifications</h2>
+
+    <p>
+        Fill in the specifications based on your product category.
+    </p>
+
+    <div id="dynamicSpecifications">
+
+    </div>
+
+</section>
+ 
+ <!-- ::::::::::Pricing::::::::::::::: -->
+ <section class="pricing-section glass-card">
+
+    <h2>Pricing</h2>
+
+    <div class="input-group">
+        <label for="price">Selling Price</label>
+        <input
+            type="number"
+            id="price"
+            placeholder="Enter selling price">
+    </div>
+
+    <div class="input-group">
+        <label for="original-price">Original Price (Optional)</label>
+        <input
+            type="number"
+            id="original-price"
+            placeholder="Enter original price">
+    </div>
+
+    <div class="input-group">
+        <label for="stock">Stock Quantity</label>
+        <input
+            type="number"
+            id="stock"
+            placeholder="Available quantity">
+    </div>
+
+</section>
+  
+  <!-- ::::::::::Discription:::::::::: -->
+  <section class="description-section glass-card">
+
+    <h2>Product Description</h2>
+
+    <div class="input-group">
+
+        <label for="description">
+            Description
+        </label>
+
+        <textarea
+            id="description"
+            rows="6"
+            placeholder="Describe your product in detail...">
+        </textarea>
+        
+        <small class="input-tip">
+        💡 Mention brand, condition and warranty.
+    </small>
+
+    <div class="character-counter">
+        0 / 1000 Characters
+    </div>
+
+    </div>
+
+</section>
+
+<!-- ::::::::::::Location::::::::::::: -->
+
+<section class="location-section glass-card">
+
+    <h2>Location</h2>
+
+    <div class="input-group">
+
+        <label for="city">
+            City
+        </label>
+
+        <select id="city">
+
+            <option value="">
+                Select City
+            </option>
+
+            <option>Islamabad</option>
+
+            <option>Rawalpindi</option>
+
+            <option>Lahore</option>
+
+            <option>Karachi</option>
+
+            <option>Peshawar</option>
+
+            <option>Quetta</option>
+
+        </select>
+
+    </div>
+
+    <div class="input-group">
+
+        <label for="area">
+            Area
+        </label>
+
+        <input
+            type="text"
+            id="area"
+            placeholder="Enter your area">
+
+    </div>
+
+</section>
+
+<!-- :::::::::::Delivery:::::::::::::: -->
+
+<section class="delivery-section glass-card">
+
+    <h2>Delivery</h2>
+
+    <div class="input-group">
+
+        <label for="delivery">
+            Delivery Available
+        </label>
+
+        <select id="delivery">
+
+            <option value="">
+                Select Option
+            </option>
+
+            <option>Yes</option>
+
+            <option>No</option>
+
+        </select>
+
+    </div>
+
+    <div class="input-group">
+
+        <label for="delivery-charge">
+            Delivery Charges
+        </label>
+
+        <input
+            type="number"
+            id="delivery-charge"
+            placeholder="Enter delivery charges">
+
+    </div>
+
+    <div class="input-group">
+
+        <label for="pickup">
+            Pickup Available
+        </label>
+
+        <select id="pickup">
+
+            <option value="">
+                Select Option
+            </option>
+
+            <option>Yes</option>
+
+            <option>No</option>
+
+        </select>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     PUBLISH PRODUCT SECTION
+========================================= -->
+
+<section class="publish-section glass-card">
+
+    <div class="button-group">
+
+    <button class="btn-secondary">
+        Save Draft
+    </button>
+
+    <button
+        id="publishBtn"
+        class="btn-primary">
+        Publish Product
+    </button>
+
+</div>
+
+</section>
+
+</main>
+  
+  <!-- ::::::::Bottom-navbar:::::::::: -->
+  <div id="bottom-nav-container"></div>
+    <script>
+fetch("components/navbar-bottom.html")
+.then(response => response.text())
+.then(data => {
+    document.getElementById("bottom-nav-container").innerHTML = data;
+     if(typeof initNavbar === "function"){
+        initNavbar();
+    }
+});
+</script>
+    
+
+
+  <script src="../js/components/navbar.js"></script>
+<script src="../js/components/layout.js"></script>
+<script src="../js/pages/upload-product.js"></script>
+
+<script src="../js/components/main.js"></script>
+
+
+</body>
+</html>

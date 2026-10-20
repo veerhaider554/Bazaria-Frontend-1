@@ -1,0 +1,73 @@
+:root {
+
+  /* =========================
+     COLORS
+  ========================== */
+
+  --primary-color: #00bfff;
+  --secondary-color: #7b2ff7;
+
+  --background-color: #0f172a;
+  --card-color: rgba(255, 255, 255, 0.05);
+
+  --text-color: #ffffff;
+  --text-light: #cbd5e1;
+
+  --border-color: rgba(255,255,255,0.1);
+
+  --success-color: #22c55e;
+  --danger-color: #ef4444;
+  --warning-color: #f59e0b;
+
+  /* =========================
+     FONTS
+  ========================== */
+
+  --main-font: 'Poppins', sans-serif;
+
+  /* =========================
+     FONT SIZES
+  ========================== */
+
+  --font-small: 14px;
+  --font-normal: 16px;
+  --font-medium: 20px;
+  --font-large: 32px;
+  --font-xlarge: 48px;
+
+  /* =========================
+     SPACING
+  ========================== */
+
+  --space-xs: 5px;
+  --space-sm: 10px;
+  --space-md: 20px;
+  --space-lg: 40px;
+  --space-xl: 80px;
+
+  /* =========================
+     BORDER RADIUS
+  ========================== */
+
+  --radius-small: 8px;
+  --radius-medium: 15px;
+  --radius-large: 25px;
+
+  /* =========================
+     SHADOWS
+  ========================== */
+
+  --shadow-light: 0 0 10px rgba(0,0,0,0.2);
+
+  --shadow-glow:
+    0 0 10px rgba(0,191,255,0.4),
+    0 0 20px rgba(0,191,255,0.2);
+
+  /* =========================
+     TRANSITIONS
+  ========================== */
+
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.4s ease;}
+  
+  

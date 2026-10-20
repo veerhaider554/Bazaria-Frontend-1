@@ -1,0 +1,143 @@
+/* =========================
+   GOOGLE FONT
+========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+/* =========================
+   BODY
+========================== */
+
+body{
+  
+  /* =========================
+   PREMIUM DARK BACKGROUND
+========================= */
+
+
+
+    background:
+    
+    radial-gradient(
+    circle at top,
+    rgba(0,170,255,0.08),
+    transparent 30%
+    ),
+
+    radial-gradient(
+    circle at bottom,
+    rgba(0,80,255,0.06),
+    transparent 35%
+    ),
+
+    linear-gradient(
+    135deg,
+    #050505,
+    #0a0a0f,
+    #111117
+    );
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+    position:relative;
+}
+
+/* =========================
+   NOISE TEXTURE
+========================= */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+    
+    padding-bottom: 70px;
+
+
+    inset:0;
+
+    z-index:-1;
+
+    opacity:0.045;
+
+    background-image:
+    url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+
+    pointer-events:none;
+
+  color: var(--text-color);
+  
+}
+
+
+
+/* =========================
+   NAVBAR
+========================== */
+
+/* 
+.navbar{
+  width: 100%;
+  padding: 20px 8%;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid var(--border-color);
+} */
+
+
+/* =========================
+   LOGO
+========================== */
+
+/* .logo{
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary-color);
+
+  cursor: pointer;
+} */
+
+
+/* =========================
+   HERO SECTION
+========================== */
+
+/* .hero{
+  width: 100%;
+  min-height: 85vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  padding: 40px 8%;
+}
+ */
+
+/* =========================
+   HERO CONTENT
+========================== */
+
+/* .hero-content h2{
+  font-size: 60px;
+  margin-bottom: 15px;
+
+  line-height: 1.2;
+}
+
+
+.hero-content p{
+  font-size: 18px;
+  color: var(--text-light);
+} */

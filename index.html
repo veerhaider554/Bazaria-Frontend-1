@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Bazaria</title>
+
+  <link rel="stylesheet" href="../css/global/reset.css">
+  <link rel="stylesheet" href="../css/global/variables.css">
+  <link rel="stylesheet" href="../css/global/style.css">
+  <link rel="stylesheet" href="../css/components/navbar.css">
+  <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+ <link rel="stylesheet" href="../css/components/hero.css">
+
+   <link rel="stylesheet" href="../css/components/productcard.css">
+</head>
+
+<body>
+
+  <div id="navbar-container"></div>
+
+
+
+    
+    
+    
+
+<div class="categories active-cat">
+
+    <button class="cat-item active-cat" data-category="All">
+    All
+</button>
+     <button class="cat-item" data-category="Electronics">
+    Electronics
+</button>
+
+<button class="cat-item" data-category="Fashion">
+    Fashion
+</button>
+
+<button class="cat-item" data-category="Mobiles">
+    Mobiles
+</button>
+<button class="cat-item" data-category="Laptop">
+    Laptop
+</button>
+<button class="cat-item" data-category="Gaming">
+    Gaming
+</button>
+<button class="cat-item" data-category="Home">
+    Home
+</button>
+<button class="cat-item" data-category="Beauty">
+    Beauty
+</button>
+<button class="cat-item" data-category="Sports">
+    Sports
+</button>
+<button class="cat-item" data-category="Books">
+    Books
+</button>
+
+</div>
+
+ <!-- ========PRODUCT SYSTEM====== -->
+  
+
+
+<!-- 🔥 BIG DEALS -->
+<section class="section-block deals-section">
+
+<!--   <div class="section-head">
+  <h2></h2>
+  <button class="see-more-btn" type="button"></button>
+</div> -->
+
+  <div id="dealProducts" class="deal-products"></div>
+
+</section>
+
+
+<!-- 🛍️ NORMAL PRODUCTS -->
+<section class="section-block normal-products-section">
+
+  <div class="section-head">
+    <h2></h2>
+
+  </div>
+
+  <div id="gridProducts" class="product-grid"></div>
+
+</section>
+
+
+<!-- ⭐ FEATURED / POPULAR PRODUCTS -->
+<section class="section-block featured-section">
+
+  <div class="section-head">
+    <h2></h2>
+    <!-- <button class="see-more-btn" type="button"></button> -->
+  </div>
+
+  <div id="horizontalProducts" class="horizontal-scroll"></div>
+
+</section>
+
+
+<!-- 🛍️ MORE NORMAL PRODUCTS -->
+<section class="section-block normal-products-section">
+
+  <div class="section-head">
+    <h2></h2>
+<!--     <button class="see-more-btn" type="button"></button> -->
+  </div>
+
+  <div id="moreGridProducts" class="product-grid"></div>
+
+</section>
+
+
+<!-- ⭐ MORE FEATURED -->
+<section class="section-block featured-section">
+
+  <div class="section-head">
+    <h2></h2>
+    <!-- <button class="see-more-btn" type="button"></button> -->
+  </div>
+
+  <div id="moreHorizontalProducts" class="horizontal-scroll"></div>
+
+</section>
+
+<!-- ================= END PRODUCT SECTIONS ================= -->
+
+
+
+
+
+
+  
+  
+  <!-- YOUTUBE STYLE BOTTOM NAVBAR -->
+
+
+  <div id="bottom-nav-container"></div>
+
+
+  <!-- :::::::::::::JS::::::::::::::::: -->
+  <script src="../js/utils/api.js"></script>
+  <script src="../js/components/renderProducts.js"></script>
+  <script src="../js/components/navbar.js"></script>
+
+
+  
+  <!-- ہوم پیج کی مین فائل جو ڈیٹا لوڈ کرے گی -->
+  <script src="../js/pages/home.js"></script>
+
+  <script src="../js/components/routes.js"></script>
+  <script src="../js/components/main.js"></script>
+
+
+
+
+
+
+</body>
+</html>
