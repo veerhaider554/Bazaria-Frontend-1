@@ -72,7 +72,7 @@ const BAZARIA_MAIN_CONFIG = Object.freeze({
                 "navbar-container",
 
             path:
-                "components/navbar-top.html",
+                "components/Navbar-top.html",
 
             cacheKey:
                 "bazaria_topnav_v30"
@@ -88,7 +88,7 @@ const BAZARIA_MAIN_CONFIG = Object.freeze({
                 "bottom-nav-container",
 
             path:
-                "components/navbar-bottom.html",
+                "components/Navbar-bottom.html",
 
             cacheKey:
                 "bazaria_bottomnav_v30"
