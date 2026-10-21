@@ -1,23 +1,9 @@
 /* =========================================================
-   BAZARIA — API CLIENT V3
+   BAZARIA — API CLIENT V3 (WITH LIVE DEBUG SYSTEM)
    Centralized Backend Communication
 
    File:
    frontend/js/utils/api.js
-
-   Architecture:
-
-   UI
-    ↓
-   page engine
-    ↓
-   API client
-    ↓
-   Express
-    ↓
-   Controller
-    ↓
-   MongoDB
 ========================================================= */
 
 
@@ -28,10 +14,10 @@
 const BAZARIA_API_CONFIG = Object.freeze({
 
     baseUrl:
-        "http://localhost:5000/api",
+        "https://joy-frail-cow.abasthan.app/api",
 
     timeout:
-        8000,
+        12000, // Timeout slightly increased for initial backend spin-up
 
     defaultProductLimit:
         20,
@@ -43,14 +29,21 @@ const BAZARIA_API_CONFIG = Object.freeze({
 
 
 /* =========================================================
-   API ERROR
+   API ERROR & DEBUG HELPER
 ========================================================= */
 
 /**
- * Standard API error.
- *
- * Keeps frontend error handling predictable.
+ * Show a clear debug alert on screen if API fails.
  */
+function showBazariaApiAlert(message, title = "Bazaria API Notice") {
+    console.error(`[${title}]:`, message);
+    if (typeof window !== "undefined") {
+        setTimeout(() => {
+            alert(`⚠️ ${title}\n\n${message}`);
+        }, 100);
+    }
+}
+
 class BazariaAPIError extends Error {
 
     constructor(
@@ -62,26 +55,20 @@ class BazariaAPIError extends Error {
             message
         );
 
-
         this.name =
             "BazariaAPIError";
-
 
         this.status =
             details.status ?? null;
 
-
         this.data =
             details.data ?? null;
-
 
         this.code =
             details.code ?? null;
 
-
         this.isTimeout =
             details.isTimeout === true;
-
 
         this.isAbort =
             details.isAbort === true;
@@ -95,9 +82,6 @@ class BazariaAPIError extends Error {
    URL BUILDER
 ========================================================= */
 
-/**
- * Safely build API URL.
- */
 function buildBazariaAPIUrl(
     endpoint
 ) {
@@ -106,7 +90,6 @@ function buildBazariaAPIUrl(
         String(
             endpoint || ""
         ).trim();
-
 
     if (
         !cleanEndpoint
@@ -117,7 +100,6 @@ function buildBazariaAPIUrl(
         );
 
     }
-
 
     return (
         BAZARIA_API_CONFIG.baseUrl.replace(
@@ -138,19 +120,12 @@ function buildBazariaAPIUrl(
    QUERY BUILDER
 ========================================================= */
 
-/**
- * Build URL query string.
- *
- * Undefined / null / empty values
- * are automatically ignored.
- */
 function buildBazariaQuery(
     params = {}
 ) {
 
     const searchParams =
         new URLSearchParams();
-
 
     Object.entries(
         params
@@ -169,7 +144,6 @@ function buildBazariaQuery(
 
             }
 
-
             searchParams.set(
                 key,
                 String(value)
@@ -178,10 +152,8 @@ function buildBazariaQuery(
         }
     );
 
-
     const query =
         searchParams.toString();
-
 
     return query
         ? `?${query}`
@@ -194,13 +166,6 @@ function buildBazariaQuery(
    RESPONSE PARSER
 ========================================================= */
 
-/**
- * Safely parse API response.
- *
- * Backend normally returns JSON,
- * but this also protects against
- * unexpected HTML/text responses.
- */
 async function parseBazariaResponse(
     response
 ) {
@@ -209,7 +174,6 @@ async function parseBazariaResponse(
         response.headers.get(
             "content-type"
         ) || "";
-
 
     if (
         contentType.includes(
@@ -229,15 +193,10 @@ async function parseBazariaResponse(
 
     }
 
-
-    /*
-     * Fallback for non-JSON response.
-     */
     try {
 
         const text =
             await response.text();
-
 
         return text
             ? {
@@ -258,16 +217,6 @@ async function parseBazariaResponse(
    CORE API REQUEST
 ========================================================= */
 
-/**
- * Central API request engine.
- *
- * Supports:
- * - timeout
- * - external AbortSignal
- * - JSON body
- * - custom headers
- * - normalized errors
- */
 async function apiRequest(
     endpoint,
     options = {}
@@ -278,11 +227,6 @@ async function apiRequest(
             endpoint
         );
 
-
-    /*
-     * Separate internal options
-     * from fetch options.
-     */
     const {
 
         timeout =
@@ -294,27 +238,13 @@ async function apiRequest(
 
     } = options;
 
-
-    /*
-     * Internal timeout controller.
-     */
     const timeoutController =
         new AbortController();
 
+    let timeoutId = null;
 
-    let timeoutId =
-        null;
-
-
-    /*
-     * Combined abort controller.
-     *
-     * External caller can cancel the request.
-     * Internal controller handles timeout.
-     */
     const requestController =
         new AbortController();
-
 
     const abortFromExternal =
         () => {
@@ -322,7 +252,6 @@ async function apiRequest(
             requestController.abort();
 
         };
-
 
     if (
         externalSignal
@@ -348,10 +277,6 @@ async function apiRequest(
 
     }
 
-
-    /*
-     * Internal timeout.
-     */
     timeoutId =
         window.setTimeout(
             () => {
@@ -363,10 +288,9 @@ async function apiRequest(
             },
             Math.max(
                 1000,
-                Number(timeout) || 8000
+                Number(timeout) || 12000
             )
         );
-
 
     try {
 
@@ -379,20 +303,11 @@ async function apiRequest(
 
         };
 
-
-        /*
-         * Automatically set JSON content type
-         * only when the body is actually JSON.
-         *
-         * FormData must remain untouched.
-         */
         let body =
             fetchOptions.body;
 
-
         const isFormData =
             body instanceof FormData;
-
 
         const isPlainObject =
             body &&
@@ -400,7 +315,6 @@ async function apiRequest(
             !isFormData &&
             !(body instanceof Blob) &&
             !(body instanceof URLSearchParams);
-
 
         if (
             isPlainObject
@@ -411,14 +325,12 @@ async function apiRequest(
             ] =
                 "application/json";
 
-
             body =
                 JSON.stringify(
                     body
                 );
 
         }
-
 
         const response =
             await fetch(
@@ -437,87 +349,60 @@ async function apiRequest(
                 }
             );
 
-
         const data =
             await parseBazariaResponse(
                 response
             );
 
-
-        /*
-         * HTTP error.
-         */
         if (
             !response.ok
         ) {
 
             const message =
                 data?.message ||
-                `API request failed with status ${response.status}`;
+                `API failed with status code ${response.status}`;
 
+            showBazariaApiAlert(message, `HTTP Error ${response.status}`);
 
             throw new BazariaAPIError(
                 message,
                 {
-
-                    status:
-                        response.status,
-
+                    status: response.status,
                     data
-
                 }
             );
 
         }
 
-
         return data;
 
     } catch (error) {
 
-        /*
-         * External abort.
-         */
         if (
             externalSignal?.aborted
         ) {
 
             throw new BazariaAPIError(
                 "API request was cancelled.",
-                {
-
-                    isAbort:
-                        true
-
-                }
+                { isAbort: true }
             );
 
         }
 
-
-        /*
-         * Timeout.
-         */
         if (
             error?.name === "AbortError"
         ) {
 
+            const timeoutMsg = "Backend server response timed out. Please refresh.";
+            showBazariaApiAlert(timeoutMsg, "Timeout Error");
+
             throw new BazariaAPIError(
-                "API request timed out.",
-                {
-
-                    isTimeout:
-                        true
-
-                }
+                timeoutMsg,
+                { isTimeout: true }
             );
 
         }
 
-
-        /*
-         * Already normalized API error.
-         */
         if (
             error instanceof BazariaAPIError
         ) {
@@ -526,10 +411,9 @@ async function apiRequest(
 
         }
 
+        const netMsg = `Failed to connect to backend URL:\n${url}\n\nPossible Causes:\n1. CORS blocked on Backend.\n2. Server sleeping/down.`;
+        showBazariaApiAlert(netMsg, "Network/CORS Error");
 
-        /*
-         * Network / unknown error.
-         */
         throw new BazariaAPIError(
             error?.message ||
             "Unable to connect to Bazaria API.",
@@ -556,7 +440,6 @@ async function apiRequest(
 
         }
 
-
         if (
             externalSignal
         ) {
@@ -577,111 +460,56 @@ async function apiRequest(
    GET ALL PRODUCTS
 ========================================================= */
 
-/**
- * Fetch paginated products.
- *
- * Backend supports:
- *
- * page
- * limit
- * search
- * category
- * subCategory
- * status
- */
 async function fetchBazariaProducts(
     options = {}
 ) {
 
-    let page =
-        Number.parseInt(
-            options.page,
-            10
+    let page = Number.parseInt(options.page, 10);
+    let limit = Number.parseInt(options.limit, 10);
+
+    if (!Number.isFinite(page) || page < 1) page = 1;
+    if (!Number.isFinite(limit) || limit < 1) limit = BAZARIA_API_CONFIG.defaultProductLimit;
+
+    limit = Math.min(limit, BAZARIA_API_CONFIG.maxProductLimit);
+
+    const query = buildBazariaQuery({
+        page,
+        limit,
+        search: options.search,
+        category: options.category,
+        subCategory: options.subCategory,
+        status: options.status
+    });
+
+    try {
+        const response = await apiRequest(
+            `/products${query}`,
+            {
+                method: "GET",
+                signal: options.signal,
+                timeout: options.timeout
+            }
         );
 
+        let productsList = [];
 
-    let limit =
-        Number.parseInt(
-            options.limit,
-            10
-        );
-
-
-    /*
-     * Safe defaults.
-     */
-    if (
-        !Number.isFinite(page) ||
-        page < 1
-    ) {
-
-        page = 1;
-
-    }
-
-
-    if (
-        !Number.isFinite(limit) ||
-        limit < 1
-    ) {
-
-        limit =
-            BAZARIA_API_CONFIG
-                .defaultProductLimit;
-
-    }
-
-
-    /*
-     * Never allow frontend to request
-     * an unnecessarily huge page.
-     */
-    limit =
-        Math.min(
-            limit,
-            BAZARIA_API_CONFIG
-                .maxProductLimit
-        );
-
-
-    const query =
-        buildBazariaQuery({
-
-            page,
-
-            limit,
-
-            search:
-                options.search,
-
-            category:
-                options.category,
-
-            subCategory:
-                options.subCategory,
-
-            status:
-                options.status
-
-        });
-
-
-    return apiRequest(
-        `/products${query}`,
-        {
-
-            method:
-                "GET",
-
-            signal:
-                options.signal,
-
-            timeout:
-                options.timeout
-
+        if (Array.isArray(response)) {
+            productsList = response;
+        } else if (response && Array.isArray(response.products)) {
+            productsList = response.products;
+        } else if (response && response.data && Array.isArray(response.data)) {
+            productsList = response.data;
         }
-    );
 
+        if (!productsList || productsList.length === 0) {
+            console.warn("Bazaria API connected successfully, but returned 0 products.");
+        }
+
+        return productsList;
+    } catch (err) {
+        console.error("fetchBazariaProducts failed:", err);
+        return [];
+    }
 }
 
 
@@ -689,9 +517,6 @@ async function fetchBazariaProducts(
    GET SINGLE PRODUCT
 ========================================================= */
 
-/**
- * Fetch one product by MongoDB ObjectId.
- */
 async function fetchBazariaProduct(
     productId,
     options = {}
@@ -702,7 +527,6 @@ async function fetchBazariaProduct(
             productId || ""
         ).trim();
 
-
     if (!id) {
 
         throw new BazariaAPIError(
@@ -710,7 +534,6 @@ async function fetchBazariaProduct(
         );
 
     }
-
 
     return apiRequest(
         `/products/${encodeURIComponent(id)}`,
