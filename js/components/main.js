@@ -337,31 +337,11 @@ function detectFrontendRoot() {
    COMPONENT URL RESOLVER
 ========================================================= */
 
-function resolveComponentUrl(
-    relativePath
-) {
-
-    const frontendRoot =
-        detectFrontendRoot();
-
-
-    if (
-        !frontendRoot
-    ) {
-
-        throw new Error(
-            "Bazaria frontend root could not be resolved."
-        );
-
-    }
-
-
-    return new URL(
-        relativePath,
-        frontendRoot
-    ).href;
-
+function resolveComponentUrl(relativePath) {
+    // یہ سیدھا لائیو پیج کے لنک سے پاتھ اٹھا لے گا، کوئی غلطی نہیں ہوگی
+    return new URL(relativePath, window.location.href).href;
 }
+
 
 
 /* =========================================================
